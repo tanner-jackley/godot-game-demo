@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2u6e8se2vu50"]
+
+[ext_resource type="Texture2D" uid="uid://rbptj5oti5nu" path="res://godot-skeleton-main/art/bg.png" id="1_t4gw0"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1600, 900)
+
+[node name="Bg" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(536.9999, 170.99988)
+scale = Vector2(1.0067208, 1.06)
+texture = ExtResource("1_t4gw0")

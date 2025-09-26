@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw7i3qamxdu3k"]
+
+[ext_resource type="Texture2D" uid="uid://cah7qndt76jlf" path="res://godot-skeleton-main/art/sun.png" id="1_sl1jc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aubd6"]
+radius = 15.0
+
+[node name="obstacle" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_aubd6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sl1jc")
