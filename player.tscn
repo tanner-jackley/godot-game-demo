@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cx71uify420h5"]
+[gd_scene load_steps=11 format=3 uid="uid://cx71uify420h5"]
 
+[ext_resource type="Texture2D" uid="uid://c14fhs8ja1j83" path="res://godot-skeleton-main/art/run.png" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://c8fc0xgyb5hf1" path="res://godot-skeleton-main/art/idle.png" id="2_onrkg"]
 
 [sub_resource type="GDScript" id="GDScript_onrkg"]
@@ -31,6 +32,7 @@ func _physics_process(delta: float) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
+size = Vector2(20, 30)
 
 [sub_resource type="GDScript" id="GDScript_4flbx"]
 script/source = "extends Camera2D
@@ -50,6 +52,14 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("2_onrkg")
 region = Rect2(0, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(0, 32, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_sweqy"]
 animations = [{
 "frames": [{
@@ -62,12 +72,24 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hs0m")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
 script = SubResource("GDScript_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -77,6 +99,9 @@ script = SubResource("GDScript_4flbx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_sweqy")
+animation = &"run"
 autoplay = "default"
-frame_progress = 0.4273569
+frame = 1
+frame_progress = 0.8246733

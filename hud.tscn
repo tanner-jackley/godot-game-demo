@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cm3ktj8pd32rq"]
+
+[node name="HUD" type="CanvasGroup"]
+
+[node name="Score" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1103.0
+offset_top = 1.0
+offset_right = 1151.0
+offset_bottom = 24.0
+grow_horizontal = 0
+text = "Score:"
+
+[node name="Time" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 548.0
+offset_top = 4.0
+offset_right = 591.0
+offset_bottom = 27.0
+grow_horizontal = 2
+text = "Time:"

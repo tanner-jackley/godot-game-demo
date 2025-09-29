@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://do2mfwmjay0vo"]
+
+[ext_resource type="Texture2D" uid="uid://bvejorgqmk2b8" path="res://godot-skeleton-main/art/enemy.png" id="1_4gyqm"]
+[ext_resource type="Script" uid="uid://mc1bqcikjsb8" path="res://enemy.gd" id="1_qi2p4"]
+[ext_resource type="PackedScene" uid="uid://b7p0ocvx3k3bk" path="res://death_zone.tscn" id="2_qi2p4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iifgy"]
+size = Vector2(23, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_epg4t"]
+radius = 108.04166
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_qi2p4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_iifgy")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_epg4t")
+
+[node name="DeathZone" parent="." instance=ExtResource("2_qi2p4")]
+
+[node name="Enemy" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_4gyqm")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

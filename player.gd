@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+@onready var animatedSprite = $AnimatedSprite2D
 
 
 func _physics_process(delta: float) -> void:
@@ -18,8 +19,11 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
+		animatedSprite.play("run")
 		velocity.x = direction * SPEED
+		animatedSprite.flip_h = direction < 0
 	else:
+		animatedSprite.play("default")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
